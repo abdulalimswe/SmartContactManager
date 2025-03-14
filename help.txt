@@ -1,0 +1,3 @@
+design - tailwindcss
+banner - Flowbite
+logo - flaticon

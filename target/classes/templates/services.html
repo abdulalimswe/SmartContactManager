@@ -1,7 +1,6 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="headerfile">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,13 +11,10 @@
   
 </head>
 <body>
-    <div th:insert="navbar.html :: navbar"></div>
 
-    <!-- <div class="container text-2x">
-        <h1 data-th-text="${name}">Welcome to home page</h1>
-        <h2>Hello</h2>
-    </div> -->
-
+    <div class="container text-2xl bg-gray-800">
+        <h1 data-th-text="${name}">Welcome to Services page</h1>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
