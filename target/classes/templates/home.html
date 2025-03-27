@@ -1,6 +1,9 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html class="light"
+    lang="en"
+    th-fragment="parent{content,title,script}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="headerfile">
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,18 +12,14 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <title>Smart Contact Manager</title>
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 </head>
-<body>
-    <div th:insert="navbar.html :: navbar"></div>
-
-    <!-- <div class="container text-2x">
-        <h1 data-th-text="${name}">Welcome to home page</h1>
-        <h2>Hello</h2>
-    </div> -->
-
+<body class="dark:bg-gray-900 dark:text-white">
+    <div data-th-replace="navbar.html :: navbar"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
 
 </body>
 </html>
