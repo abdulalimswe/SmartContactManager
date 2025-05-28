@@ -2,6 +2,8 @@ package com.utin.scm.forms;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.utin.scm.validators.ValidFile;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -32,6 +34,8 @@ public class ContactForm {
     private String description;
     private String websiteLink;
     private String linkedinLink;
+
+    @ValidFile(message = "invalid File")
     private MultipartFile contactImage;
 
 }
