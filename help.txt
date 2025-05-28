@@ -1,0 +1,11 @@
+design - tailwindcss
+banner - Flowbite
+logo - flaticon
+
+work tailwindcss command: npx tailwindcss -i ./src/main/resources/static/css/input.css -o ./src/main/resources/static/css/output.css --watch
+
+
+upload image:
+    pom.xml dependancy
+    ImageService
+    AppConfig
