@@ -3,9 +3,12 @@ package com.utin.scm.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.utin.scm.entities.Contact;
+import com.utin.scm.entities.User;
 
 public interface ContactService extends JpaRepository<Contact, String>{
     Contact save(Contact contact);
@@ -18,6 +21,8 @@ public interface ContactService extends JpaRepository<Contact, String>{
     List<Contact> search(String name, String email, String phoneNumber);
 
     List<Contact> getByUserId(String userId);
+
+    Page<Contact>getByUser(User user, int page, int size, String sortfield, String sortDirection);
 
 
 }

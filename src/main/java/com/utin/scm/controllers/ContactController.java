@@ -6,6 +6,7 @@ import javax.naming.Binding;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.utin.scm.entities.Contact;
 import com.utin.scm.entities.User;
 import com.utin.scm.forms.ContactForm;
+import com.utin.scm.helpers.AppConstants;
 import com.utin.scm.helpers.Helper;
 import com.utin.scm.helpers.Message;
 import com.utin.scm.helpers.MessageType;
@@ -26,6 +28,8 @@ import com.utin.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/user/contacts")
@@ -103,4 +107,25 @@ public class ContactController {
         
         return "redirect:/user/contacts/add";
     }
+
+    //view Contact
+    @RequestMapping
+    public String viewContact(      
+        @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "size", defaultValue = "10") int size,
+        @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
+        @RequestParam(value = "direction", defaultValue = "asc") String direction, Model model, Authentication authentication) {
+
+        //load to all user contacts
+        String username = Helper.getEmailOfLoggedInUser(authentication);
+
+        User user = userService.getUserByEmail(username);
+
+        Page<Contact> pageContact = contactService.getByUser(user,page,size,sortBy,direction);
+        model.addAttribute("pageContact", pageContact);
+        model.addAttribute("pageSize",AppConstants.PAGE_SIZE);
+
+        return "user/contacts";
+    }
+    
 }

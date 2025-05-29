@@ -8,11 +8,13 @@ import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 
 import com.utin.scm.entities.Contact;
+import com.utin.scm.entities.User;
 import com.utin.scm.helpers.ResourceNotFoundException;
 import com.utin.scm.repositories.ContactRepo;
 import com.utin.scm.services.ContactService;
@@ -234,6 +236,14 @@ public class ContactServiceImpl implements ContactService{
     public <S extends Contact, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findBy'");
+    }
+
+    @Override
+    public Page<Contact> getByUser(User user, int page, int size, String sortBy, String direction) {
+        Sort sort = direction.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        var pageable = PageRequest.of(page,size, sort);
+        
+        return contactRepo.findByUser(user,pageable);
     }
 
 }
