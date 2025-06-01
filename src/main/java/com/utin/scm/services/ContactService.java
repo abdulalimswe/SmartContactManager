@@ -17,11 +17,12 @@ public interface ContactService extends JpaRepository<Contact, String>{
     Contact getById(String id);
     Contact delete(String id);
 
-    //search contact
-    List<Contact> search(String name, String email, String phoneNumber);
+   // search contact
+    Page<Contact> searchByName(String nameKeyword, int size, int page, String sortBy, String order, User user);
+    Page<Contact> searchByEmail(String emailKeyword, int size, int page, String sortBy, String order, User user);
+    Page<Contact> searchByPhoneNumber(String phoneNumberKeyword, int size, int page, String sortBy, String order,User user);
 
     List<Contact> getByUserId(String userId);
-
     Page<Contact>getByUser(User user, int page, int size, String sortfield, String sortDirection);
 
 
