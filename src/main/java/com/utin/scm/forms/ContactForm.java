@@ -38,4 +38,6 @@ public class ContactForm {
     @ValidFile(message = "invalid File")
     private MultipartFile contactImage;
 
+    private String picture;
+
 }

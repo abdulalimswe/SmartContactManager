@@ -137,10 +137,17 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
+                                        <!-- delete contact -->
                                         <button th:onclick="deleteContact([[${it.id}]])">
                                             <i class="fa-solid w-6 h-6 fa-trash"></i>
                                         </button>
-                                        <i class="fa-solid w-6 h-6 fa-pen"></i>
+                                        
+                                        <!-- update contacts -->
+                                        <a data-th-href="@{'/user/contacts/view/'+*{id}}">
+                                            <i class="fa-solid w-6 h-6 fa-pen"></i
+                                        ></a>
+
+                                        <!-- view contact -->
                                         <button th:onclick="loadContactdata([[${it.id}]])" 
                                         >
                                             <i class="fa-solid w-6 h-6 fa-eye"></i>
