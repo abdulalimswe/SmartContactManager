@@ -48,16 +48,16 @@ A modern and secure **Contact Management Web Application** built using **Spring 
 
 1. **Clone the Repository**
 
-   ```bash
+   bash
    git clone https://github.com/abdulalimswe/SmartContactManager.git
    cd SmartContactManager
-````
+
 
 2. **Create MySQL Database**
 
-   ```sql
+   sql
    CREATE DATABASE smart_contact_manager;
-   ```
+   
 
 3. **Configure `application.properties`**
 
@@ -65,16 +65,15 @@ A modern and secure **Contact Management Web Application** built using **Spring 
 
 4. **Build and Run the Application**
 
-   ```bash
+   bash
    mvn clean install
    java -jar target/SmartContactManager-0.0.1-SNAPSHOT.jar
-   ```
+   
 
 5. **Access the App**
 
    Open in your browser: [http://localhost:8081](http://localhost:8081)
 
----
 
 ## 📌 Key Functionalities
 
@@ -84,16 +83,14 @@ A modern and secure **Contact Management Web Application** built using **Spring 
 * Beautiful and responsive UI using Flowbite + Tailwind
 * SweetAlert for enhanced user interaction and feedback
 
----
 
 ## 📸 Screenshots
 
-```markdown
+
 ![Home Page](https://github.com/user-attachments/assets/8bfcb253-56d7-4022-b1a9-5921a838dd63)
 ![Login Page](https://github.com/user-attachments/assets/281a69e5-74d1-477d-8353-80d1fdaf1225)
 ![Add Contact](https://github.com/user-attachments/assets/c03369b3-48d9-4da6-9189-cecdf82770da)
 ![Contact List](https://github.com/user-attachments/assets/b71ffe94-bb64-46db-9828-72896c56193b)
----
 
 
 ## 👨‍💻 Author
