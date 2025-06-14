@@ -9,3 +9,5 @@ upload image:
     pom.xml dependancy
     ImageService
     AppConfig
+
+SweetAlert -> Delete Alert PopUp  

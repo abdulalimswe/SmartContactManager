@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.slf4j.Logger;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
@@ -158,6 +158,20 @@ public class ContactController {
         model.addAttribute("pageSize", AppConstants.PAGE_SIZE);
 
         return "user/search";
+    }
+
+    // detete contact
+    @RequestMapping("/delete/{contactId}")
+    public String deleteContact(@PathVariable("contactId") String contactId, HttpSession session) {
+        contactService.delete(contactId);
+        logger.info("contactId {} deleted", contactId);
+        session.setAttribute("message", Message.builder()
+                        .content("Contact is Deleted successfully !! ")
+                        .type(MessageType.green)
+                        .build()
+        );
+
+        return "redirect:/user/contacts";
     }
     
 }

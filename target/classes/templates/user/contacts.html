@@ -28,6 +28,7 @@
           <div class="contacts_container p-5">
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div data-th-replace="~{message :: messagebox}"></div>
                     <div class="flex p-5 items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
                         <form
                             data-th-object="${contactSearchForm}"
@@ -136,7 +137,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <i class="fa-solid w-6 h-6 fa-trash"></i>
+                                        <button th:onclick="deleteContact([[${it.id}]])">
+                                            <i class="fa-solid w-6 h-6 fa-trash"></i>
+                                        </button>
                                         <i class="fa-solid w-6 h-6 fa-pen"></i>
                                         <button th:onclick="loadContactdata([[${it.id}]])" 
                                         >

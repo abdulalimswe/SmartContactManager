@@ -60,3 +60,21 @@ async function loadContactdata(id){
     console.log("Error: ", error);
   }
 }
+
+async function deleteContact(id) {
+  Swal.fire({
+    title: "Do you want to delete the contact?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Delete",
+    customClass: {
+      confirmButton: 'bg-red-600 text-white hover:bg-red-700 font-medium px-4 py-2 rounded',
+      cancelButton: 'bg-gray-300 text-black hover:bg-gray-400 font-medium px-4 py-2 rounded'
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const url = `${baseURL}/user/contacts/delete/` + id;
+      window.location.replace(url);
+    }
+  });
+}
