@@ -38,7 +38,7 @@ A modern and secure **Contact Management Web Application** built using **Spring 
 
 - Java 21+
 - Maven 3.x
-- MySQL or MariaDB
+- MySQL
 - Cloudinary account
 - SMTP email credentials
 
